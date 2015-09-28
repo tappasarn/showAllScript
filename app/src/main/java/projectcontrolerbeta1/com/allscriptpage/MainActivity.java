@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList <String> scriptArrayList = new ArrayList <String>();
     private int addToPosition,old_position;
     private ImageButton addScript, editScript, runScript;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,13 +81,18 @@ public class MainActivity extends AppCompatActivity {
             listScriptView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long id) {
-                    Toast toast = Toast.makeText(MainActivity.this, String.format("The script %s is check", scriptArrayList.get(pos)), Toast.LENGTH_SHORT);
-                    toast.show();
+                    //unchecking item in list view
                     if (old_position == pos) {
+                        Toast toast = Toast.makeText(MainActivity.this, String.format("The script %s is uncheck", scriptArrayList.get(pos)), Toast.LENGTH_SHORT);
+                        toast.show();
                         listScriptView.setItemChecked(pos, false);
                         //use for moving old_position to unreal pos allowing toggle
                         old_position = scriptArrayList.size();
-                    } else {
+                    }
+                    //for checking item on list view
+                    else {
+                        Toast toast = Toast.makeText(MainActivity.this, String.format("The script %s is check", scriptArrayList.get(pos)), Toast.LENGTH_SHORT);
+                        toast.show();
                         listScriptView.setItemChecked(pos, true);
                         old_position = pos;
                     }
