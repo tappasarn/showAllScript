@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> scriptListAdapter;
     private Cursor ScriptDBCursor;
     private ArrayList <String> scriptArrayList = new ArrayList <String>();
-    private int addToPosition,old_position;
+    private int addToPosition,old_position = -1;
     private ImageButton addScript, editScript, runScript;
 
     @Override
